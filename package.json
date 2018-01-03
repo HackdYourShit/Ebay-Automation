@@ -18,7 +18,12 @@
   },
   "homepage": "https://github.com/arvinth10/Ebay-Automation#readme",
   "dependencies": {
+    "asyncawait": "^1.0.6",
     "chromedriver": "^2.34.0",
+    "pdfmake": "^0.1.35",
     "selenium-webdriver": "^3.6.0"
+  },
+  "devDependencies": {
+    "pdfmake": "^0.1.35"
   }
 }
