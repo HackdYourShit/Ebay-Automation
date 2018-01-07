@@ -1,7 +1,7 @@
 # Ebay-Automation
 Automation tools for eBay sellers
 
-getShippingPDF.js can be used by sellers using lettermail to ship their items. This program collect address and models solds and collectively produces a pdf file to be printed on the enveloped to be shipped
+getShippingPDF.js can be used by sellers using lettermail to ship their items. This program collect address and models sold to collectively produce a pdf file to be printed on the envelope to be shipped. Current page sizing is set to envelope #10
 
 # Installation
 
