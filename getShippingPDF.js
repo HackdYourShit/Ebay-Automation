@@ -1,4 +1,4 @@
-/*
+ls/*
 Author: Arvinth Vijayanathan
 Description: 
   - Creates a pdf of pages for each awaiting shipment. 
@@ -30,10 +30,10 @@ var promise = webdriver.promise;
 var chromeCapabilities = webdriver.Capabilities.chrome();
 
 //Undocment if you want browser to be headless(hidden)
-// var chromeOptions = {
-//     'args': ['--headless']
-// };
-//chromeCapabilities.set('chromeOptions', chromeOptions);
+var chromeOptions = {
+    'args': ['--headless']
+};
+chromeCapabilities.set('chromeOptions', chromeOptions);
 
 var driver = new webdriver.Builder().withCapabilities(chromeCapabilities).build();
 
@@ -256,13 +256,18 @@ function getContent(models,quant, adds){
           
           //checks if second address line is needed
           if(adds[count].add2 == ""){
-            join = "\n\n\n" + adds[count].name + "\n" + adds[count].add1 + "\n" + adds[count].add3;
+            join = "\n\n\n\n" + adds[count].name + "\n" + adds[count].add1 + "\n" + adds[count].add3;
           }
           else{
             join = "\n\n\n" + adds[count].name + "\n" + adds[count].add1 + "\n" + adds[count].add2 + "\n" + adds[count].add3;
 
           }
-          content.push({text: join, style: 'mailStyle', pageBreak: 'after'});
+
+          if(count < (models.length - 1)){
+            content.push({text: join, style: 'mailStyle'});
+          }else{
+            content.push({text: join, style: 'mailStyle', pageBreak: 'after'});
+          }
 
           count++; 
 
@@ -284,9 +289,11 @@ function replaceAll(str, find, replace) {
 function exportPDF (info){
 
   var docDefinition = {
-    pageSize: {width: (105/0.35277), height: (241 / 0.35277)},
+    pageSize: {width: (95/0.35277), height: (250 / 0.35277)},
     pageOrientation: 'landscape',
-    pageMargins: [87 /0.35277, 6 /0.35277, 12.7 /0.35277, 6 /0.35277],
+    pageMargins: [89 /0.35277, 0, 3 /0.35277, 6 /0.35277],
+
+    header: {image: 'header.png', alignment: 'left', width: 180},
 
     styles: {
       mailStyle: {
