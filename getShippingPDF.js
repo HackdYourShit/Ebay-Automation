@@ -1,4 +1,4 @@
-ls/*
+/*
 Author: Arvinth Vijayanathan
 Description: 
   - Creates a pdf of pages for each awaiting shipment. 
@@ -262,11 +262,11 @@ function getContent(models,quant, adds){
             join = "\n\n\n" + adds[count].name + "\n" + adds[count].add1 + "\n" + adds[count].add2 + "\n" + adds[count].add3;
 
           }
-
-          if(count < (models.length - 1)){
-            content.push({text: join, style: 'mailStyle'});
-          }else{
+     
+          if(count < (quant.length -1)){
             content.push({text: join, style: 'mailStyle', pageBreak: 'after'});
+          }else{
+            content.push({text: join, style: 'mailStyle'});
           }
 
           count++; 
