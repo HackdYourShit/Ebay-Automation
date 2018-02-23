@@ -1,4 +1,4 @@
-ls/*
+/*
 Author: Arvinth Vijayanathan
 Description: 
   - Creates a pdf of pages for each awaiting shipment. 
